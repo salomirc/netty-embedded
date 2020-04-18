@@ -1,6 +1,7 @@
 package io.ktor.samples.hello
 
 import io.ktor.application.*
+import io.ktor.features.CallLogging
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
@@ -21,6 +22,7 @@ fun main(args: Array<String>) {
                 setProduction()
                 addDomainSet("belsoft.cf")
             }
+            install(CallLogging)
             routing {
                 get("/") {
                     call.respondText("HELLO!")
